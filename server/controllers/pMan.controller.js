@@ -12,14 +12,14 @@ module.exports.findAllProducts = (req, res) => {
         .catch(err => res.json({ message: "Something went wrong", error: err }));
 };
 
+
+module.exports.createProduct = (request, response) => {
+    Product.create(request.body)
+    .then(newlyCreatedProduct => response.json({product: newlyCreatedProduct}))
+    .catch(err => response.json(err));
+}
 module.exports.findOneProduct = (req, res) => {
     Product.findById(req.params.id)
         .then(oneProduct => res.json({product: oneProduct}))
         .catch(err => res.json({message: "Something went wrong", error: err}))
 };
-
-module.exports.createProduct = (request, response) => {
-    Product.create(request.body)
-        .then(newlyCreatedProduct => response.json({product: newlyCreatedProduct}))
-        .catch(err => response.json(err));
-}
