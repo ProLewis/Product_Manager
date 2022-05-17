@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Route, Routes, Link } from 'react-router-dom';
 
 const ProductNav = (props) => {
     const [products, setProducts] = useState([]);
@@ -22,7 +23,7 @@ const ProductNav = (props) => {
                             products.map((product, index) => {
                                 return (
                                     <div key={index}>
-                                        {/* </div><a href=`http://localhost:8000/api/product/$(product._id)s`>{product.title}</a> */}
+                                        <Link to ={`/product/${product._id}`}>{product.title}</Link>
                                     </div>
                                 )
                             })

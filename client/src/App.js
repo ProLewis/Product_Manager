@@ -3,12 +3,16 @@ import React, {useEffect} from 'react';
 import axios from 'axios'
 import ProductForm from './components/ProductForm';
 import ProductNav from './components/ProductNav'
+import { Route, Routes, Link } from 'react-router-dom';
+import ProductDetail from './views/ProductDetail';
 
 function App() {
   return (
     <div className="App">
-      <ProductForm/>
-      <ProductNav/>
+      <Routes>
+        <Route path='/' element={<><ProductForm/><ProductNav/></>}/>
+        <Route path='/product/:id' element={<ProductDetail/>}/>
+      </Routes>
     </div>
   );
 }
